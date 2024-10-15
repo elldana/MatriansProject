@@ -1,7 +1,11 @@
 import java.util.Random;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
+        int numbersOfAttempts = 3;
         int minOfKmValue = 1;
         int maxOfKmValue = 7;
 
@@ -19,6 +23,10 @@ public class Main {
             int temp = rightLocations[i];
             rightLocations[i] = rightLocations[location];
             rightLocations[location] = temp;
+        }
+        int[] martiansAttempt = new int[numbersOfAttempts];
+        for (int i = 0; i < numbersOfAttempts; i++) {
+            martiansAttempt[i] = sc.nextInt();
         }
     }
 }
