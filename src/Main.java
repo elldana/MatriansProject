@@ -12,8 +12,9 @@ public class Main {
 
         System.out.println("Hi, martians! Enter 3 numbers (kilometers) :");
 
-        boolean oneMoreAttempts = true;
-        while (oneMoreAttempts) {
+        boolean oneMoreAttempt = true;
+        while (oneMoreAttempt) {
+
             int[] rightLocations = new int[maxOfKmValue];
 
             for (int i = 0; i < rightLocations.length; i++) {
