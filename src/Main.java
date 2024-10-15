@@ -61,6 +61,12 @@ public class Main {
                 }
                 count++;
             }
+            if (count == 5) {
+                System.out.println(" ");
+                System.out.println("Unfortunately, you have wasted all 5 attempts. " +
+                        "\n" + "All three boxes changed their location. Enter 3 numbers again: ");
+            }
+            count = 0;
+            }
         }
     }
-}
