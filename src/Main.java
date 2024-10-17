@@ -40,7 +40,7 @@ public class Main {
 
                 for (int i = 0; i < martiansAttempt.length; i++) {
                     for (int j = 0; j < martiansAttempt.length; j++) {
-                    if (martiansAttempt[i] == rightLocations[j]) {
+                        if (martiansAttempt[i] == rightLocations[j]) {
                         countForBoxes++;
                         }
                     }
@@ -49,7 +49,7 @@ public class Main {
                     System.out.println("Congratulations! You have found all three boxes!");
                 }
                 else if (countForBoxes > 0) {
-                    System.out.println("You have found " + countForBoxes + " box(es)! Try again to find another.");
+                    System.out.println("You have found " + countForBoxes + " " + boxOrBoxes(countForBoxes) + "! Try again to find another. ");
                     countForBoxes = 0;
                 }
                 else {
@@ -65,4 +65,7 @@ public class Main {
                 countForAttempts = 0;
             }
         }
+    static String boxOrBoxes (int countForBoxes) {
+        String box = (countForBoxes == 1) ? "box" : "boxes";
+        return box;}
     }
