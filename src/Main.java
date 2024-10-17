@@ -41,12 +41,13 @@ public class Main {
                 for (int i = 0; i < martiansAttempt.length; i++) {
                     for (int j = 0; j < martiansAttempt.length; j++) {
                         if (martiansAttempt[i] == rightLocations[j]) {
-                        countForBoxes++;
+                            countForBoxes++;
                         }
                     }
                 }
                 if (countForBoxes == numbersOfAttempts) {
                     System.out.println("Congratulations! You have found all three boxes!");
+                    System.exit(0);
                 }
                 else if (countForBoxes > 0) {
                     System.out.println("You have found " + countForBoxes + " " + boxOrBoxes(countForBoxes) + "! Try again to find another. ");
@@ -57,15 +58,16 @@ public class Main {
                 }
                 countForAttempts++;
             }
-                if (countForAttempts == 5) {
-                    System.out.println(" ");
-                    System.out.println("Unfortunately, you have wasted all 5 attempts. " +
-                            "\n" + "All three boxes changed their location. Enter 3 numbers again: ");
-                }
-                countForAttempts = 0;
+            if (countForAttempts == 5) {
+                System.out.println(" ");
+                System.out.println("Unfortunately, you have wasted all 5 attempts. " +
+                        "\n" + "All three boxes changed their location. Enter 3 numbers again: ");
             }
+            countForAttempts = 0;
         }
+    }
     static String boxOrBoxes (int countForBoxes) {
         String box = (countForBoxes == 1) ? "box" : "boxes";
-        return box;}
+        return box;
     }
+}
