@@ -8,7 +8,8 @@ public class Main {
         int minOfKmValue = 1;
         int maxOfKmValue = 7;
         int numbersOfAttempts = 3;
-        int count = 0;
+        int countForBoxes = 0;
+        int countForAttempts = 0;
 
         System.out.println("Hi, martians! Enter 3 numbers (kilometers) :");
 
@@ -29,45 +30,39 @@ public class Main {
                 rightLocations[location] = temp;
             }
 
-            while (count < 5) {
+            while (countForAttempts < 5) {
+
                 int[] martiansAttempt = new int[numbersOfAttempts];
-                for (int i = 0; i < numbersOfAttempts; i++) {
+
+                for (int i = 0; i < martiansAttempt.length; i++) {
                     martiansAttempt[i] = sc.nextInt();
                 }
 
-                if ((martiansAttempt[0] == rightLocations[0]) && (martiansAttempt[1] == rightLocations[1]) && (martiansAttempt[2] == rightLocations[2])) {
-                    System.out.println("Congratulations! You found all boxes.");
-                    System.exit(0);
+                for (int i = 0; i < martiansAttempt.length; i++) {
+                    for (int j = 0; j < martiansAttempt.length; j++) {
+                    if (martiansAttempt[i] == rightLocations[j]) {
+                        countForBoxes++;
+                        }
+                    }
                 }
-                else if ((martiansAttempt[0] == rightLocations[0]) && (martiansAttempt[1] == rightLocations[1])) {
-                    System.out.println("You found two boxes! Try again to find another box.");
+                if (countForBoxes == numbersOfAttempts) {
+                    System.out.println("Congratulations! You have found all three boxes!");
                 }
-                else if ((martiansAttempt[1] == rightLocations[1]) && (martiansAttempt[2] == rightLocations[2])) {
-                    System.out.println("You found two boxes! Try again to find another box.");
-                }
-                else if ((martiansAttempt[0] == rightLocations[0]) && (martiansAttempt[2] == rightLocations[2])) {
-                    System.out.println("You found two boxes! Try again to find another box.");
-                }
-                else if (martiansAttempt[0] == rightLocations[0]) {
-                    System.out.println("You found one box! Try again to find another boxes.");
-                }
-                else if (martiansAttempt[1] == rightLocations[1]) {
-                    System.out.println("You found one box! Try again to find another boxes.");
-                }
-                else if (martiansAttempt[2] == rightLocations[2]) {
-                    System.out.println("You found one box! Try again to find another boxes.");
+                else if (countForBoxes > 0) {
+                    System.out.println("You have found " + countForBoxes + " box(es)! Try again to find another.");
+                    countForBoxes = 0;
                 }
                 else {
                     System.out.println("Try again.");
                 }
-                count++;
+                countForAttempts++;
             }
-            if (count == 5) {
-                System.out.println(" ");
-                System.out.println("Unfortunately, you have wasted all 5 attempts. " +
-                        "\n" + "All three boxes changed their location. Enter 3 numbers again: ");
-            }
-            count = 0;
+                if (countForAttempts == 5) {
+                    System.out.println(" ");
+                    System.out.println("Unfortunately, you have wasted all 5 attempts. " +
+                            "\n" + "All three boxes changed their location. Enter 3 numbers again: ");
+                }
+                countForAttempts = 0;
             }
         }
     }
